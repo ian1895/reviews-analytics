@@ -34,3 +34,28 @@ print(bad)
 bad = []
 for d in date:
 	bad.append('bad' in d)
+
+# 文字計數
+
+wc = {} # word_count
+for d in data:
+	words = d.split()
+	for word in words:
+		if word in wc:
+			wc[word] += 1
+		else:
+			wc[word] = 1 # add new key in wc dictionary
+
+for word in wc:
+	if wc[word] > 1000000:
+		print(word, wc[word])
+
+while True:
+	word = input('請問你想查什麼字: ')
+	if word =='q':
+		break
+	if word in wc:
+		print(word, '出現過的次數為: ', wc[word])
+	else:
+		print('這個字沒有出現過喔')	
+print('感謝使用查詢功能')

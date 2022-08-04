@@ -1,3 +1,6 @@
+import time
+import random
+
 data = []
 count = 0
 with open('reviews.txt', 'r') as f:
@@ -21,22 +24,23 @@ print('總共有', len(new), '筆留言長度小於100')
 
 good = []
 for d in data:
-if 'good' in d:
-	good.append(d)
+	if 'good' in d:
+		good.append(d)
 print('一共有', len(good), '筆留言提到good')		
 # 上面等於下面寫法
-good = [d for d in data if 'good' in d]
-print(good)
+# good = [d for d in data if 'good' in d]
+# print(good)
 
 bad = ['bad' in d for d in data]
-print(bad)
+# print(bad)
 # 上面等於下面寫法
-bad = []
-for d in date:
-	bad.append('bad' in d)
+# bad = []
+# for d in date:
+#	bad.append('bad' in d)
+
 
 # 文字計數
-
+start_time = time.time()
 wc = {} # word_count
 for d in data:
 	words = d.split()
@@ -49,6 +53,8 @@ for d in data:
 for word in wc:
 	if wc[word] > 1000000:
 		print(word, wc[word])
+end_time = time.time()
+print('花了', end_time - start_time, 'seconds')
 
 while True:
 	word = input('請問你想查什麼字: ')
